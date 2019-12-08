@@ -1,1 +1,31 @@
-<p>frutas works!</p>
+<h3 class="display-4 justify-content mt-4">
+    Frutas
+</h3>
+<p class="justify-content">Vamos! Añade tu primera fruta</p>
+
+<div class="row mt-4">
+    <div class="col-md-4">
+        <div class="card text-center">
+            <div class="card-header">Nueva fruta</div>
+            <div class="card-body">
+                <div class="form-group">
+                    <input [(ngModel)]="nombre" type="text" class="form-control" placeholder="Nombre">
+                </div>
+                <div class="form-group">
+                    <input [(ngModel)]="cantidad" type="number" class="form-control" placeholder="Cantidad">
+                </div>
+                <div class="btn btn-success" (click)="agregarFruta()">Añadir fruta</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div *ngIf="frutas.length == 0" class="alert alert-danger">No hay frutas agregadas</div>
+        <div class="card mb-4 text-center">
+            <div class="card-body" *ngFor="let fruta of frutas; let i = index">
+                <strong>Nombre:</strong> {{ fruta.nombre }}
+                <strong class="ml-3">Cantidad:</strong> {{ fruta.cantidad }}
+                <div class="btn btn-danger ml-3" (click)="eliminarFruta(i)">Eliminar</div>
+            </div>
+        </div>
+    </div>
+</div>
