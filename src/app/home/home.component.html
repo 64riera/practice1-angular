@@ -1,1 +1,11 @@
 <h3 class="display-4 mt-4 text-center">Bienvenido {{ nombreUsuario }} a tu app</h3>
+
+<div *ngIf="identificado; else noIdentificado">
+    <div class="alert alert-success">Identificado correctamente</div>
+    <div class="btn btn-danger" (click)="cerrarSesion()" >Salir</div>
+</div>
+
+<ng-template #noIdentificado>
+    <div class="alert alert-danger">No estás identificado</div>
+    <div class="btn btn-success" (click)="iniciarSesion()" >Ingresar</div>
+</ng-template>

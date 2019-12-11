@@ -9,6 +9,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   public nombreUsuario: string;
+  public identificado: boolean;
 
   constructor(
     private rutaActiva: ActivatedRoute
@@ -19,6 +20,14 @@ export class HomeComponent implements OnInit {
     this.rutaActiva.params.subscribe(datos => {
       this.nombreUsuario = datos.nombre;
     });
+  }
+
+  cerrarSesion(){
+    this.identificado = false;
+  }
+
+  iniciarSesion(){
+    this.identificado = true;
   }
 
 }
